@@ -1,0 +1,44 @@
+# site settings
+title: Apenas Rascunhos
+subtitle: Um canto perdido na vastidão da internet.
+email: lexking1408@gmail.com
+description: Um canto perdido na vastidão da internet. Um lugar pra despejar ideias, devaneios e quem sabe algo que faça sentido. Ou não. Honestamente? Tanto faz. Se está aqui, aproveite a bagunça.
+baseurl: "/apenas-rascunhos-2.0" # the subpath of your site, e.g. /blog
+url: https://slashline15.github.io # the base hostname & protocol for your site
+author: Lex King
+street_address: Universo C-137
+city: Earth
+state: América do Norte
+zip_code: 69666-137
+country: Brasil
+phone:
+
+# homepage tiles
+tiles-source: pages # accepts "posts" or "pages"
+tiles-count: 6
+
+# social settings (key must match name of font awesome icon)
+# see https://fontawesome.com/icons?d=gallery&p=2&s=brands
+# Icons are not shown if value is empty
+# You need to restart jekyll for changes to have an effect
+socials:
+  GitHub: https://github.com/slashline15
+  GitLab:
+  Google-Plus: 
+  Instagram:
+  LinkedIn: 
+  Twitter: 
+  Facebook:
+  Slack:
+
+# build settings
+markdown: kramdown
+
+sass:
+  style: compressed
+
+exclude:
+- "*.gemspec"
+- LICENSE.md
+- CONTRIBUTING.md
+- README.md 

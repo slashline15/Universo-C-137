@@ -1,31 +1,23 @@
 from flask import Flask, request, jsonify
-import smtplib
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return render_template('_layouts\home.html')  # Certifique-se de que index.html está na pasta 'templates'
+
+
 @app.route('/enviar-resposta', methods=['POST'])
-def enviar_resposta():
-    dados = request.json  # Recebe os dados do formulário
+def receber_resposta():
+    # Recebe os dados enviados pelo formulário
+    dados = request.json
     resposta = dados.get('resposta')
-
-    # Configuração do e-mail
-    remetente = 'seuemail@gmail.com'
-    senha = 'suasenha'
-    destinatario = 'emaildestino@gmail.com'
-
-    mensagem = f"Resposta recebida: {resposta}"
-
-    try:
-        # Envia o e-mail
-        servidor = smtplib.SMTP('smtp.gmail.com', 587)
-        servidor.starttls()
-        servidor.login(remetente, senha)
-        servidor.sendmail(remetente, destinatario, mensagem)
-        servidor.quit()
-        return jsonify({'mensagem': 'E-mail enviado com sucesso!'}), 200
-    except Exception as e:
-        print(f"Erro ao enviar e-mail: {e}")
-        return jsonify({'mensagem': 'Erro ao enviar e-mail.'}), 500
+    
+    # Aqui você pode processar a resposta
+    print(f"Resposta recebida: {resposta}")
+    
+    # Responde para o front-end
+    return jsonify({'mensagem': 'Resposta recebida com sucesso!'}), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
